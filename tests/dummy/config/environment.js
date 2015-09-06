@@ -40,8 +40,23 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/ember-cli-facebook-feed/';
   }
+
+  ENV.contentSecurityPolicy = {
+    'script-src': [
+      "'self'",
+      'http://connect.facebook.net',
+      'https://connect.facebook.net'],
+    'frame-src': [
+      'http://static.ak.facebook.com',
+      'http://www.facebook.com',
+      'https://www.facebook.com',
+      'https://s-static.ak.facebook.com'],
+     'style-src': [
+       "'self'",
+       "'sha256-brx_rg0MKs7Ak8cpHylVraZAxpjgd2vlxY-XpfuTR20='"]
+  };
 
   return ENV;
 };
