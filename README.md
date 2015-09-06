@@ -1,4 +1,5 @@
-# Ember-cli-facebook-feed
+# ember-cli-facebook-feed
+An ember component that shows a Facebook feed.
 
 This README outlines the details of collaborating on this Ember addon.
 
