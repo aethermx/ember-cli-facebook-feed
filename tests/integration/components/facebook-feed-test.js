@@ -8,9 +8,8 @@ moduleForComponent('facebook-feed', 'Integration | Component | facebook feed', {
 test('it renders', function(assert) {
   assert.expect(1);
 
-  // Template block usage:
   this.render(hbs`
-    {{#facebook-feed}}
+    {{#facebook-feed appId='1234567890'}}
       <a>template block text</a>
     {{/facebook-feed}}
   `);

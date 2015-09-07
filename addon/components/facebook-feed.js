@@ -10,7 +10,10 @@ export default Ember.Component.extend({
 
   _fbInit: Ember.on('init', function() {
     let appId = this.get('appId');
-   
+
+    Ember.assert('A numeric value was not passed for appId.',
+                 appId && !isNaN(appId));   
+
     window.fbAsyncInit = function() {
       /* SDK completed loading */
       window.FB.init({
