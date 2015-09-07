@@ -21,6 +21,7 @@ export default Ember.Component.extend({
         xfbml: true,
         version: 'v2.4'
       });
+      //self.set('_isSDKInitDone', true);
     };
   }),
 
@@ -39,7 +40,7 @@ export default Ember.Component.extend({
 
       if (d.getElementById(id)) {
         // custom line:
-        window.FB.XFBML.parse(self.get('element'));
+        self._fbXFBMLParse();
         return;
       }
 
@@ -51,6 +52,16 @@ export default Ember.Component.extend({
     }(document, 'script', 'facebook-jssdk'));
     /*jshint ignore:end*/
     /* Plugin JS provided by Facebook end */
+  },
+
+  _fbXFBMLParse: function() {
+    let self = this;
+    let intervalId = window.setInterval(function() {
+      if (window.FB) {
+        window.FB.XFBML.parse(self.get('element'));
+        clearInterval(intervalId);
+      }
+    }, 3);
   }
 
 });
