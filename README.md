@@ -1,10 +1,13 @@
+[![Build Status](https://travis-ci.org/aethermx/ember-cli-facebook-feed.svg?branch=master)](https://travis-ci.org/aethermx/ember-cli-facebook-feed)
+[![Code Climate](https://codeclimate.com/github/aethermx/ember-cli-facebook-feed/badges/gpa.svg)](https://codeclimate.com/github/aethermx/ember-cli-facebook-feed)
+
 # ember-cli-facebook-feed
 
 An ember component that shows a Facebook feed.
 
     ember install ember-cli-facebook-feed
 
-Got to https://developers.facebook.com/docs/plugins/page-plugin and get
+Got to https://developers.facebook.com/docs/plugins/page-plugin, get
 the plugin code and use it like this:
 
     {{#facebook-feed appId='your-app-id'}}
