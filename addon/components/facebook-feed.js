@@ -6,39 +6,48 @@ export default Ember.Component.extend({
 
   classNames: ['facebook_feed'],
 
-  _insertedNode: null,
+  appId: null,
+
+  _fbInit: Ember.on('init', function() {
+    let appId = this.get('appId');
+   
+    window.fbAsyncInit = function() {
+      /* SDK completed loading */
+      window.FB.init({
+        appId: appId,
+        xfbml: true,
+        version: 'v2.4'
+      });
+    };
+  }),
 
   didInsertElement: function() {
     let elementId = this.get('elementId');
-    Ember.assert('The first children must be div.fb-page',
+    Ember.assert('The first children must be a <div.fb-page>',
                  Ember.$(elementId + ' > div.fb-page'));
 
-    let insertedNode = null;
-    /* Widget JS provided by Facebook start */
+    /* Plugin JS provided by Facebook start */
     /*jshint ignore:start*/
+    // custom line:
+    let self = this;
     (function(d, s, id) {
       var js,
           fjs = d.getElementsByTagName(s)[0];
 
       if (d.getElementById(id)) {
-        Ember.Logger.error('A facebook-jssdk node is already present.'); // custom
+        // custom line:
+        window.FB.XFBML.parse(self.get('element'));
         return;
       }
 
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=759777254104976";
-      insertedNode = fjs.parentNode.insertBefore(js, fjs); // custom
+      js = d.createElement(s);
+      js.id = id;
+      // custom line:
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     /*jshint ignore:end*/
-    /* Widget JS provided by Facebook end */
-
-    Ember.assert('A twitter-wsj node was inserted.', insertedNode);
-
-    this._insertedNode = insertedNode;
-  },
-
-  willClearRender: function() {
-    //Ember.$(this._insertedNode).remove();
-  } 
+    /* Plugin JS provided by Facebook end */
+  }
 
 });

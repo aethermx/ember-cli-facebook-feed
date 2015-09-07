@@ -1,5 +1,10 @@
 {
   "predef": [
+    "FB",
+    "expectComponent",
+    "clickComponent",
+    "expectElement",
+    "expectNoElement",
     "document",
     "window",
     "location",

@@ -6,19 +6,12 @@ moduleForComponent('facebook-feed', 'Integration | Component | facebook feed', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{facebook-feed}}`);
-
-  assert.equal(this.$().text().trim(), '');
+  assert.expect(1);
 
   // Template block usage:
   this.render(hbs`
     {{#facebook-feed}}
-      template block text
+      <a>template block text</a>
     {{/facebook-feed}}
   `);
 

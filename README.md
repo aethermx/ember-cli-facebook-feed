@@ -7,7 +7,8 @@ An ember component that shows a Facebook feed.
 Got to https://developers.facebook.com/docs/plugins/page-plugin and get
 the plugin code and use it like this:
 
-    {{#facebook-feed}}
+    {{#facebook-feed appId='your-app-id'}}
+      <!-- html line -->
     {{/facebook-feed}}
 
 Demo: http://aethermx.github.io/ember-cli-facebook-feed/
