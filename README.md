@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/aethermx/ember-cli-facebook-feed.svg?branch=master)](https://travis-ci.org/aethermx/ember-cli-facebook-feed)
 [![Code Climate](https://codeclimate.com/github/aethermx/ember-cli-facebook-feed/badges/gpa.svg)](https://codeclimate.com/github/aethermx/ember-cli-facebook-feed)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-facebook-feed.svg)](http://emberobserver.com/addons/ember-cli-facebook-feed)
 
 # ember-cli-facebook-feed
 
